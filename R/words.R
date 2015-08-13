@@ -1,6 +1,6 @@
-single_words <- function(words, key, ...){
+single_words <- function(words, key, lang, ...){
   url <- paste0("https://api.what3words.com/w3w?key=", key,
-                "&string=", paste(words, collapse = "."))
+                "&string=", paste(words, collapse = "."), "&lang=", lang)
  return(clean(threeword_query(url, ...)))
 }
 
@@ -24,12 +24,12 @@ single_words <- function(words, key, ...){
 #'\dontrun{
 #'# Ask for a single lat/long pair from the what3words API (note: this requires an API key.
 #'# Don't actually use 'ANAPIKEY'.)
-#'results <- from_words(key = "ANAPIKEY", words = c("turnip","basil","fruit"))
+#'results <- from_words(key = "ANAPIKEY", words = c("turnip","basil","fruit"), lang="en)
 #'}
 #'@export
-from_words <- function(key, words, ...){
+from_words <- function(key, words, lang="en", ...){
   if(is.list(words)){
-    return(lapply(words, single_words, key, ...))
+    return(lapply(words, single_words, key, lang, ...))
   }
-  return(single_words(words, key, ...))
+  return(single_words(words, key, lang, ...))
 }
