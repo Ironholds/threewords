@@ -1,7 +1,7 @@
 
-single_position <- function(position, key, lang, ...){
+single_position <- function(position, key, ...){
   url <- paste0("https://api.what3words.com/position?key=", key,
-                "&position=", paste(position, collapse = ","), "&lang=", lang)
+                "&position=", paste(position, collapse = ","))
   return(clean(threeword_query(url, ...)))
 }
 
@@ -25,12 +25,12 @@ single_position <- function(position, key, lang, ...){
 #'\dontrun{
 #'# Ask for a single set of words from the what3words API (note: this requires an API key.
 #'# Don't actually use 'ANAPIKEY'.)
-#'results <- from_position(key = "ANAPIKEY", positions = c(6.385336,-36.293769), lang="en")
+#'results <- from_position(key = "ANAPIKEY", positions = c(6.385336,-36.293769))
 #'}
 #'@export
-from_position <- function(key, positions, lang="en", ...){
+from_position <- function(key, positions, ...){
   if(is.list(positions)){
-    return(lapply(positions, single_position, key, lang, ...))
+    return(lapply(positions, single_position, key, ...))
   }
-  return(single_position(positions, key, lang, ...))
+  return(single_position(positions, key, ...))
 }
