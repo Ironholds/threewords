@@ -14,6 +14,8 @@ single_position <- function(position, key, lang, ...){
 #'@param positions either a vector containing a single latitude/longitude pair, or a \emph{list} of vectors
 #'for vectorised operations.
 #'
+#'@param lang any language code of the following: "de", "en", "es", "fr", "pt", "ru", "sv", "sw", "tr"
+#'
 #'@param ... further arguments to pass to httr's GET.
 #'
 #'@return A list containing the words, positions and language of those words.
