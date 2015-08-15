@@ -3,7 +3,7 @@ Type: Package
 Title: Represent Precise Coordinates in Three Words
 Version: 0.1.0
 Date: 2015-08-07
-Author: Oliver Keyes
+Author: Oliver Keyes [aut, cre], Verena Haunschmid [ctb]
 Maintainer: Oliver Keyes <ironholds@gmail.com>
 Description: A connector to the 'What3Words' (http://what3words.com/) service, which represents each 3m by 3m square on earth
              with a unique trio of English-language words.
